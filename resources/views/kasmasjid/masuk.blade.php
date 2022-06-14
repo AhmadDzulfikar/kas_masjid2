@@ -59,10 +59,10 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$d->tanggal}}</td>
                         <td>{{$d->uraian}}</td>
-                        <td>{{$d->masuk}}</td>
+                        <td>Rp.{{$d->masuk}}</td>
                         <td>
-                            <span class="badge bg-success">Active</span>
-                            <a class="btn btn-danger" href={{url('/kas-masjid-pemasukan/delete/'. $d->id)}}><i class="fas fa-trash"></i></a>
+                            <a class="btn shadow btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editMasuk{{ $d->id}}">Edit</i></a>
+                            <a class="btn shadow btn-outline-danger btn-sm" href={{url('/kas-masjid/delete/'. $d->id)}}>delete</i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -71,6 +71,7 @@
             </table>
         </div>
     </div>
+    @include('kasmasjid/formEditMasuk')
 </section>
 
 @endsection

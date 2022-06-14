@@ -76,65 +76,8 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        {{-- dashboard --}}
-
+                        
                         {{-- Kas Masjid --}}
-                       <li class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link'>
-                            <i class="bi bi-bell"></i>
-                            <span>Kas Masjid</span>
-                        </a>
-                        <ul class="submenu ">
-                            <li class="submenu-item ">
-                                <a href="ui-icons-bootstrap-icons.html">Pemasukan Kas Masjid </a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="ui-icons-fontawesome.html">Pengeluaran Kas Masjid</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="ui-icons-dripicons.html">Rekap Kas Masjid</a>
-                            </li>
-                        </ul>
-                    </li>
-                            {{-- Tutup Kas Masjid --}}
-
-                            {{-- Kas Sosial --}}
-                       <li class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link'>
-                            <i class="bi bi-person-badge-fill"></i>
-                            <span>Kas Sosial</span>
-                        </a>
-                        <ul class="submenu ">
-                            <li class="submenu-item ">
-                                <a href="ui-icons-bootstrap-icons.html">Pemasukan Kas Sosial </a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="ui-icons-fontawesome.html">Pengeluaran Kas Sosial</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="ui-icons-dripicons.html">Rekap Kas Sosial</a>
-                            </li>
-                        </ul>
-                    </li>
-                            {{-- Tutup Kas Sosial --}}
-
-                            {{-- Rekap Kas --}}
-                       <li class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link'>
-                            <i class="bi bi-cash"></i>
-                            <span>Rekap Kas</span>
-                        </a>
-                        <ul class="submenu ">
-                            <li class="submenu-item ">
-                                <a href="ui-icons-bootstrap-icons.html">Rekap Kas Masjid</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="ui-icons-dripicons.html">Rekap Kas Sosial</a>
-                            </li>
-                        </ul>
-                    </li>
-                            {{-- Rekap Kas --}}
-
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-bell-fill"></i>
@@ -153,7 +96,7 @@
                                
                             </ul>
                         </li>
-
+                        {{-- Kas Sosial --}}
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-people-fill"></i>
@@ -171,7 +114,8 @@
                                 </li>
                             </ul>
                         </li>
-
+                        
+                        {{-- Print rekap --}}
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-medical-fill"></i>
@@ -179,10 +123,10 @@
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="form-element-input.html">Rekap Kas Masjid</a>
+                                    <a href="form-element-input.html">Kas Masjid</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="form-element-input-group.html">Rekap Kas Sosial</a>
+                                    <a href="form-element-input-group.html">Kas Sosial</a>
                                 </li>
                                 
                             </ul>
@@ -205,10 +149,16 @@
                         </li>
 
                         <li class="sidebar-item  ">
-                            <a href="form-layout.html" class='sidebar-link'>
-                                <i class="bi bi-arrow-left-square-fill"></i>
-                                <span>Logout</span>
-                            </a>
+                            <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="sidebar-link">
+                            <i class="bi bi-arrow-left-square-fill"></i>
+                                        <span>Logout</span>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                         </li>
                 </div>
             </div>

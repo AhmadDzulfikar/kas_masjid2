@@ -262,7 +262,7 @@ body.theme-dark a {
 }
 
 body.theme-dark a:hover {
-    color: #697ecb
+    color: #e5e6e7;
 }
 
 body.theme-dark a:not([href]):not([class]),

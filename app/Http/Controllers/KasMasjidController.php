@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KasMasjid;
+use Illuminate\Support\Facades\Redis;
 
 class KasMasjidController extends Controller
 {
@@ -50,68 +51,61 @@ class KasMasjidController extends Controller
         
     }
 
+    public function storePengeluaran(Request $request) {
+        $this->validate($request,[
+            'tanggal'=> 'required',
+            'uraian' => 'required',
+            'keluar' => 'required',
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        ]);
+        $data = new KasMasjid();
+        $data-> tanggal = $request-> tanggal;
+        $data-> uraian = $request-> uraian;
+        $data-> keluar = $request-> keluar;
+        $data-> jenis = 'keluar';
+        $data-> save();
+
+        return redirect()->back();
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function editPemasukan(Request $request,$id) {
+        $data = KasMasjid::where('id',$id)->firstOrFail();
+
+        $request->validate([
+            'tanggal'=> 'required',
+            'uraian' => 'required',
+            'masuk' => 'required',
+        ]);
+        // dd($request);
+
+        $data->tanggal = $request->tanggal;
+        $data->uraian = $request->uraian;
+        $data->masuk = $request->masuk;
+        $data->update();
+
+        return redirect()->back();
+    }
+  
+    public function editPengeluaran(Request $request,$id) {
+        $data = KasMasjid::where('id',$id)->firstOrFail();
+
+        $request->validate([
+            'tanggal'=> 'required',
+            'uraian' => 'required',
+            'keluar' => 'required',
+        ]);
+        // dd($request);
+
+        $data->tanggal = $request->tanggal;
+        $data->uraian = $request->uraian;
+        $data->keluar = $request->keluar;
+        // dd($data);
+        $data->update();
+
+        return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $data = KasMasjid::find($id);
