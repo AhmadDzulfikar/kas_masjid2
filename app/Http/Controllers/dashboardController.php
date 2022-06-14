@@ -16,6 +16,11 @@ class dashboardController extends Controller
         return view('dashboard');
     }
 
+    public function landing()
+        {
+            return view('landing');
+        }
+    
     /**
      * Show the form for creating a new resource.
      *
