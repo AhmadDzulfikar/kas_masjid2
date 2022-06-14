@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('main')
-    <h1>tes</h1>
+    <h1>dashboard</h1>
 @endsection
