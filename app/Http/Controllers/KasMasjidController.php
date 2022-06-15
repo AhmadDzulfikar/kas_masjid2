@@ -33,6 +33,7 @@ class KasMasjidController extends Controller
         return view('kasmasjid.keluar',compact('data'));
     }
 
+    //tambah data kas masjid
     public function storePemasukan(Request $request) {
         $this->validate($request,[
             'tanggal'=> 'required',
@@ -69,6 +70,7 @@ class KasMasjidController extends Controller
         
     }
 
+    //edit data kas masjid
     public function editPemasukan(Request $request,$id) {
         $data = KasMasjid::where('id',$id)->firstOrFail();
 
@@ -106,6 +108,7 @@ class KasMasjidController extends Controller
         return redirect()->back();
     }
 
+    //delete data kas masjid
     public function destroy($id)
     {
         $data = KasMasjid::find($id);

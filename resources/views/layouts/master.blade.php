@@ -104,13 +104,13 @@
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="layout-default.html">Pemasukan Kas Sosial</a>
+                                    <a href={{url('kas-sosial-pemasukan')}}>Pemasukan Kas Sosial</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="layout-vertical-1-column.html">Pengeluaran Kas Sosial</a>
+                                    <a href={{url('kas-sosial-pengeluaran')}}>Pengeluaran Kas Sosial</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="layout-vertical-navbar.html">Rekap Kas Sosial</a>
+                                    <a href={{url('kas-sosial-rekap')}}>Rekap Kas Sosial</a>
                                 </li>
                             </ul>
                         </li>
@@ -174,12 +174,11 @@
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
-                    </div>
+                    
                     <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="https://saugi.me">Saugi</a></p>
+                        <p>
+                            <a href="#" class="text-secondary">Crafted with PT Solusi Intek Indonesia</a>
+                        </p>
                     </div>
                 </div>
             </footer>

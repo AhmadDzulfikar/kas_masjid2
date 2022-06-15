@@ -7790,8 +7790,8 @@ body.theme-dark .dataTable-input {
     -moz-appearance: none;
     appearance: none;
     background-clip: padding-box;
-    background-color: #fff;
-    border: 1px solid #dfe3e7;
+    background-color: #1b1b29;
+    border: 1px solid #1b1b29;
     border-radius: .25rem;
     color: #555252;
     font-size: .9025rem;

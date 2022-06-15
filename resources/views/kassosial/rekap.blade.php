@@ -9,7 +9,7 @@
 <section class="section">
     <div class="card">
         <div class="card-header">
-            <h1>Rekap Kas Masjid</h1>   
+            <h1>Rekap Kas Sosial</h1>   
         </div>
         <div class="card-body">
             <table class="table table-striped" id="table1">

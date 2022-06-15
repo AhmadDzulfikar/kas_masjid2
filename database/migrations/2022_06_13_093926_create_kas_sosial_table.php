@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('kas_sosial', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal');
+            $table->longtext('uraian');
+            $table->integer('masuk')->nullable();
+            $table->integer('keluar')->nullable();
+            $table->string('jenis');
             $table->timestamps();
         });
     }

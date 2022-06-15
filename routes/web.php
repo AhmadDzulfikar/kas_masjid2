@@ -4,6 +4,7 @@ use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\KasMasjidController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\KasSosialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +51,7 @@ Route::get('/kas-masjid/delete/{id}', [KasMasjidController::class, 'destroy']);
 
 
 
-//get data kas masjid
+//get data kas sosial
 Route::get('/kas-sosial-rekap', [KasSosialController::class, 'rekap']);
 Route::get('/kas-sosial-pengeluaran', [KasSosialController::class, 'keluar']);
 Route::get('/kas-sosial-pemasukan', [KasSosialController::class, 'masuk']);
