@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\KasMasjidController;
+use  App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\KasSosialController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +22,17 @@ use App\Http\Controllers\KasSosialController;
 
 
 
-Route::get('/', function(){
+Route::get('/', function () {
     return view('layouts.event');
 });
 
-Route::get('/login', function(){
+Route::get('/login', function () {
     return view('auth.login');
 });
-Route::get('/home', function(){
+Route::get('/user', function () {
+    return view('user');
+});
+Route::get('/home', function () {
     return view('home');
 });
 
@@ -49,6 +54,8 @@ Route::put('kas-masjid-pengeluaran/edit/{id}', [KasMasjidController::class, 'edi
 //delete kas masjid
 Route::get('/kas-masjid/delete/{id}', [KasMasjidController::class, 'destroy']);
 
+Route::post('store-admin', [UserController::class, 'store'])->name('admin.store');
+
 
 
 //get data kas sosial
@@ -67,5 +74,12 @@ Route::put('kas-sosial-pengeluaran/edit/{id}', [KasSosialController::class, 'edi
 //delete kas sosial
 Route::get('/kas-sosial/delete/{id}', [KasSosialController::class, 'destroy']);
 
-Auth::routes();
+//User
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+Route::get('/create-user', [UserController::class, 'create']);
+Route::get('/show-user/{id}', [UserController::class, 'show']);
+Route::post('/store-user', [UserController::class, 'store']);
+Route::post('/user-update/{id}', [UserController::class, 'update']);
+Route::get('/user-destroy/{id}', [UserController::class, 'destroy']);
 
+Auth::routes();
