@@ -8485,5 +8485,8 @@
             d = new(e())(document.querySelector("#chart-europe"), o),
             g = new(e())(document.querySelector("#chart-america"), n);
         new(e())(document.querySelector("#chart-indonesia"), l).render(), g.render(), d.render(), h.render(), c.render()
+    
+            
+    
     })()
 })();

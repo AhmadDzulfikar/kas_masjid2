@@ -24,7 +24,7 @@
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header position-relative">
                     <div class="logo" style="font-size:20px;">
-                        <a href="index.html">
+                        <a href="#">
                             Masjid <br>
                             Jami' Ar-Rahma
                         </a>
@@ -87,10 +87,10 @@
                                 <li class="submenu-item {{ request()->is('kas-masjid-pemasukan*') ? 'active' : '' }}">
                                     <a href={{ url('kas-masjid-pemasukan') }}>Pemasukan Kas Masjid</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item {{ request()->is('kas-masjid-pengeluaran*') ? 'active' : '' }}">
                                     <a href={{ url('kas-masjid-pengeluaran') }}>Pengeluaran Kas Masjid</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item {{ request()->is('kas-masjid-rekap*') ? 'active' : '' }}">
                                     <a href={{ url('kas-masjid-rekap') }}>Rekap Kas Masjid</a>
                                 </li>
 
@@ -103,13 +103,13 @@
                                 <span>Kas Sosial</span>
                             </a>
                             <ul class="submenu ">
-                                <li class="submenu-item ">
+                                <li class="submenu-item {{ request()->is('kas-sosial-pemasukan*') ? 'active' : '' }}">
                                     <a href={{url('kas-sosial-pemasukan')}}>Pemasukan Kas Sosial</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item {{ request()->is('kas-sosial-pengeluaran*') ? 'active' : '' }}">
                                     <a href={{url('kas-sosial-pengeluaran')}}>Pengeluaran Kas Sosial</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item {{ request()->is('kas-sosial-rekap*') ? 'active' : '' }}">
                                     <a href={{url('kas-sosial-rekap')}}>Rekap Kas Sosial</a>
                                 </li>
                             </ul>
@@ -140,13 +140,22 @@
                                 <span>Event Masjid</span>
                             </a>
                         </li>
-
-                        <li class="sidebar-item  ">
-                            <a href={{ url('/user') }} class='sidebar-link'>
-                                <i class="bi bi-person-fill"></i>
-                                <span>Users</span>
+                        @hasrole('admin')
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-people-fill"></i>
+                                <span>User</span>
                             </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item {{ request()->is('admin*') ? 'active' : '' }}">
+                                    <a href={{url('admin')}}>Admin</a>
+                                </li>
+                                <li class="submenu-item {{ request()->is('bendahara*') ? 'active' : '' }}">
+                                    <a href={{url('bendahara')}}>Bendahara</a>
+                                </li>
+                            </ul>
                         </li>
+                            @endhasrole
 
                         <li class="sidebar-item  ">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -180,6 +189,8 @@
     <script src={{ asset('assets/js/extensions/simple-datatables.js') }}></script>
 
 
+    <script src="assets/js/extensions/ui-chartjs.js"></script>
+    
 </body>
 
 </html>

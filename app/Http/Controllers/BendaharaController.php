@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class BendaharaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,11 @@ class UserController extends Controller
     public function index()
     {
         // $id_user = user::all();
-        $user = User::orderBy('name', 'ASC')->role('admin')->get();
-        return view('admin')
-            ->with('user', $user);
+        $bendahara = User::orderBy('name', 'ASC')->role('bendahara')->get();
+        return view('bendahara')
+            ->with('bendahara', $bendahara);
+
+        // ->with('id_bendahara', $id_bendahara);
     }
 
     /**
@@ -40,11 +42,11 @@ class UserController extends Controller
         $data->email = $request->email;
         $data->password = Hash::make($request->password);
         $data->save();
-        $data->assignRole('admin');
+        $data->assignRole('bendahara');
 
-        return redirect()->route('user.index')->with('success', 'Task Created Successfully!');
+        return redirect()->route('bendahara.index')->with('success', 'Task Created Successfully!');
     }
- 
+  
     /**
      * Remove the specified resource from storage.
      *
@@ -55,6 +57,6 @@ class UserController extends Controller
     {
         $item = User::find($id);
         $item->delete();
-        return redirect('/admin');
+        return redirect('/bendahara');
     }
 }

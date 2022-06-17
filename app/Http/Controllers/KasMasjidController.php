@@ -46,6 +46,7 @@ class KasMasjidController extends Controller
         $data-> uraian = $request-> uraian;
         $data-> masuk = $request-> masuk;
         $data-> jenis = 'masuk';
+            // dd($data);
         $data-> save();
 
         return redirect()->back();

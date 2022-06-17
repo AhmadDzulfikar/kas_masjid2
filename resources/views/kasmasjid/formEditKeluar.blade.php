@@ -21,7 +21,7 @@
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Tanggal</label>
-                <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder" name="tanggal">
+                <input type="date" class="form-control" value="{{ $d->masuk }}" id="formGroupExampleInput2" placeholder="Another input placeholder" name="tanggal">
               </div>
         </div>
         <div class="modal-footer">

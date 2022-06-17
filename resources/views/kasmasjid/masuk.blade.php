@@ -14,20 +14,17 @@
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nama"
-                                name="Nama">
-                        </div>
-                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Uraian</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Uraian" name="uraian">
+                          </div>
+                          <div class="mb-3">
                             <label for="formGroupExampleInput2" class="form-label">Pemasukan</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Pemasukan"
-                                name="masuk">
-                        </div>
-                        <div class="mb-3">
+                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Pemasukan" name="keluar">
+                          </div>
+                          <div class="mb-3">
                             <label for="formGroupExampleInput2" class="form-label">Tanggal</label>
-                            <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Tanggal"
-                                name="tanggal">
-                        </div>
+                            <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="tanggal" name="tanggal">
+                          </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

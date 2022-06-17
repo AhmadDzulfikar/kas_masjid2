@@ -6,6 +6,7 @@ use  App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\KasSosialController;
+use App\Http\Controllers\BendaharaController;
 
 
 /*
@@ -29,11 +30,8 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('auth.login');
 });
-Route::get('/user', function () {
-    return view('user');
-});
-Route::get('/home', function () {
-    return view('home');
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
 Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
@@ -74,12 +72,14 @@ Route::put('kas-sosial-pengeluaran/edit/{id}', [KasSosialController::class, 'edi
 //delete kas sosial
 Route::get('/kas-sosial/delete/{id}', [KasSosialController::class, 'destroy']);
 
-//User
-Route::get('/user', [UserController::class, 'index'])->name('user.index');
-Route::get('/create-user', [UserController::class, 'create']);
-Route::get('/show-user/{id}', [UserController::class, 'show']);
-Route::post('/store-user', [UserController::class, 'store']);
-Route::post('/user-update/{id}', [UserController::class, 'update']);
-Route::get('/user-destroy/{id}', [UserController::class, 'destroy']);
+//Admin
+Route::get('/admin', [UserController::class, 'index'])->name('admin.index');
+Route::post('/store-admin', [UserController::class, 'store']);
+Route::get('/admin-destroy/{id}', [UserController::class, 'destroy']);
+
+//Bendahara
+Route::get('/bendahara', [BendaharaController::class, 'index'])->name('bendahara.index');
+Route::post('/store-bendahara', [BendaharaController::class, 'store']);
+Route::get('/bendahara-destroy/{id}', [BendaharaController::class, 'destroy']);
 
 Auth::routes();
